@@ -1,7 +1,9 @@
 import sys
-import requests
 from urllib.parse import urlsplit
-import bucket_file_list
+
+import requests
+
+import bucket_file_key
 
 
 def download_progressbar(bucket_file_url, base_path):
@@ -32,11 +34,16 @@ def download_progressbar(bucket_file_url, base_path):
 
 if __name__ == "__main__":
 
-    base_url = r'http://pic.blackist.top/'
-    base_save = r'/Users/black/Downloads/yutipic-bak'
+    config = bucket_file_key.build_config()
 
-    file_keys = bucket_file_list.bucket_list()
-    skip_file_keys = ['202002210054_374.conf', '20200831230050./Users/blackist/Desktop/seq']
+    base_url = repr(config['download']['BaseURL'])
+    base_save = repr(config['download']['SavePath'])
+
+    print(base_url)
+    print(base_save)
+
+    bucket_name, file_keys = bucket_file_key.get_file_keys()
+    skip_file_keys = []
 
     index = 0
 
