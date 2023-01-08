@@ -1,5 +1,11 @@
 ## qiniu-downloader
 
+由于域名备案、https 证书付费问题，我把博客的文件存储迁移到了 [Cloudflare 的 R2 存储](https://cloudflare.com/)。
+
+文件迁移采取先备份再上传的方式，使用脚本批量下载文件。
+
+迁移完成后，删除七牛云的 Bucket 需要清空对象，使用脚本批量删除；不过，批量删除后七牛云有缓存，删除 Bucket 校验文件对象仍非空，需要等待较长时间才能执行删除操作。
+
 ### Features
 
 - 下载文件：file_download.py
