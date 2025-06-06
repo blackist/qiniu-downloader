@@ -11,6 +11,13 @@
 - 下载文件：file_download.py
 - 删除文件：file_delete.py
 
+### python lib
+
+``` bash 
+pip3 install qiniu
+pip3 install configparser
+```
+
 ### 配置文件
 
 在根目录创建 config.ini 文件：
